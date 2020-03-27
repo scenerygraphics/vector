@@ -6,7 +6,7 @@ import net.imglib2.RealPositionable
 import org.joml.Vector3f
 import org.joml.Vector3fc
 
-class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
+class Vec3f() : Vector3f(), RealLocalizable, RealPositionable {
     constructor(x: Float, y: Float, z: Float) : this() {
         this.x = x
         this.y = y
@@ -179,21 +179,21 @@ class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
         return 3
     }
 
-    fun add(p2: VectorPoint3f): VectorPoint3f {
+    fun add(p2: Vec3f): Vec3f {
         val result = this.copy()
         for( d in 0 until numDimensions())
             result.move(p2.getDoublePosition(d), d)
         return result
     }
 
-    operator fun minus(p2: VectorPoint3f): VectorPoint3f {
+    operator fun minus(p2: Vec3f): Vec3f {
         val result = this.copy()
         for( d in 0 until numDimensions())
             result.move(-p2.getDoublePosition(d), d)
         return result
     }
 
-    fun multiply(s: Float): VectorPoint3f {
+    fun multiply(s: Float): Vec3f {
         val result = this.copy()
         result.setPosition(result.getDoublePosition(0) * s, 0)
         result.setPosition(result.getDoublePosition(1) * s, 1)
@@ -217,11 +217,11 @@ class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
         return a
     }
 
-    fun cross(v2: VectorPoint3f): VectorPoint3f {
+    fun cross(v2: Vec3f): Vec3f {
         return this.cross(v2)
     }
 
-    fun elmul(v2: VectorPoint3f): VectorPoint3f {
+    fun elmul(v2: Vec3f): Vec3f {
         val r = this.copy()
         r.setPosition(r.x() * v2.x(), 0)
         r.setPosition(r.y() * v2.y(), 1)
@@ -229,11 +229,11 @@ class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
         return r
     }
 
-    fun dot(v2: VectorPoint3f): Float {
+    fun dot(v2: Vec3f): Float {
         return this.x() * v2.x() + this.y() * v2.y() + this.z() * v2.z()
     }
 
-    override fun normalize(): VectorPoint3f {
+    override fun normalize(): Vec3f {
         val r = this.copy()
         val f = 1 / this.length
         r.setPosition(r.x() * f, 0)
@@ -242,25 +242,25 @@ class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
         return r
     }
 
-    fun copy(): VectorPoint3f {
-        return VectorPoint3f(x(), y(), z())
+    fun copy(): Vec3f {
+        return Vec3f(x(), y(), z())
     }
 
-    operator fun plus(v2: VectorPoint3f): VectorPoint3f {
+    operator fun plus(v2: Vec3f): Vec3f {
         return this.add(v2)
     }
 
-    operator fun times(v2: VectorPoint3f): VectorPoint3f {
-        return this.mul(v2, VectorPoint3f()) as VectorPoint3f
+    operator fun times(v2: Vec3f): Vec3f {
+        return this.mul(v2, Vec3f()) as Vec3f
     }
 
-    operator fun div(v2: VectorPoint3f): VectorPoint3f {
-        return this.div(v2, VectorPoint3f()) as VectorPoint3f
+    operator fun div(v2: Vec3f): Vec3f {
+        return this.div(v2, Vec3f()) as Vec3f
     }
 
     companion object {
         fun test() {
-            val v = VectorPoint3f(1.0f, 0.0f, 0.0f)
+            val v = Vec3f(1.0f, 0.0f, 0.0f)
             val v2 = v + v
             println(v2)
         }

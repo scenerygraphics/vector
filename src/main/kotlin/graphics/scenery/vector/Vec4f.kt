@@ -6,7 +6,7 @@ import net.imglib2.RealPositionable
 import org.joml.Vector4f
 import org.joml.Vector4fc
 
-class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
+class Vec4f() : Vector4f(), RealLocalizable, RealPositionable {
     constructor(x: Float, y: Float, z: Float, w: Float) : this() {
         this.x = x
         this.y = y
@@ -194,21 +194,21 @@ class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
         return 3
     }
 
-    fun add(p2: VectorPoint4f): VectorPoint4f {
+    fun add(p2: Vec4f): Vec4f {
         val result = this.copy()
         for( d in 0 until numDimensions())
             result.move(p2.getDoublePosition(d), d)
         return result
     }
 
-    operator fun minus(p2: VectorPoint4f): VectorPoint4f {
+    operator fun minus(p2: Vec4f): Vec4f {
         val result = this.copy()
         for( d in 0 until numDimensions())
             result.move(-p2.getDoublePosition(d), d)
         return result
     }
 
-    fun multiply(s: Float): VectorPoint4f {
+    fun multiply(s: Float): Vec4f {
         val result = this.copy()
         result.setPosition(result.getDoublePosition(0) * s, 0)
         result.setPosition(result.getDoublePosition(1) * s, 1)
@@ -235,11 +235,11 @@ class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
         return a
     }
 
-    fun cross(v2: VectorPoint4f): VectorPoint4f {
+    fun cross(v2: Vec4f): Vec4f {
         return this.cross(v2)
     }
 
-    fun elmul(v2: VectorPoint4f): VectorPoint4f {
+    fun elmul(v2: Vec4f): Vec4f {
         val r = this.copy()
         r.setPosition(r.x() * v2.x(), 0)
         r.setPosition(r.y() * v2.y(), 1)
@@ -248,11 +248,11 @@ class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
         return r
     }
 
-    fun dot(v2: VectorPoint4f): Float {
+    fun dot(v2: Vec4f): Float {
         return this.x() * v2.x() + this.y() * v2.y() + this.z() * v2.z() + this.w() * v2.w()
     }
 
-    override fun normalize(): VectorPoint4f {
+    override fun normalize(): Vec4f {
         val r = this.copy()
         val f = 1 / this.length
         r.setPosition(r.x() * f, 0)
@@ -262,25 +262,25 @@ class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
         return r
     }
 
-    fun copy(): VectorPoint4f {
-        return VectorPoint4f(x(), y(), z(), w())
+    fun copy(): Vec4f {
+        return Vec4f(x(), y(), z(), w())
     }
 
-    operator fun plus(v2: VectorPoint4f): VectorPoint4f {
+    operator fun plus(v2: Vec4f): Vec4f {
         return this.add(v2)
     }
 
-    operator fun times(v2: VectorPoint4f): VectorPoint4f {
-        return this.mul(v2, VectorPoint4f()) as VectorPoint4f
+    operator fun times(v2: Vec4f): Vec4f {
+        return this.mul(v2, Vec4f()) as Vec4f
     }
 
-    operator fun div(v2: VectorPoint4f): VectorPoint4f {
-        return this.div(v2, VectorPoint4f()) as VectorPoint4f
+    operator fun div(v2: Vec4f): Vec4f {
+        return this.div(v2, Vec4f()) as Vec4f
     }
 
     companion object {
         fun test() {
-            val v = VectorPoint4f(0.0f, 0.0f, 0.0f, 0.0f)
+            val v = Vec4f(0.0f, 0.0f, 0.0f, 0.0f)
             //val v2 = v + v
         }
     }

@@ -1,7 +1,7 @@
 package graphics.scenery.vector.test
 
-import graphics.scenery.vector.VectorPoint3f
-import graphics.scenery.vector.VectorPoint4f
+import graphics.scenery.vector.Vec3f
+import graphics.scenery.vector.Vec4f
 import net.imglib2.img.array.ArrayImgs
 import net.imglib2.interpolation.randomaccess.NLinearInterpolatorFactory
 import net.imglib2.type.numeric.integer.UnsignedByteType
@@ -11,7 +11,7 @@ import kotlin.random.Random
 import kotlin.test.assertEquals
 
 /**
- * Tests for [VectorPoint3f] and [VectorPoint4f] classes.
+ * Tests for [Vec3f] and [Vec4f] classes.
  *
  * @author Kyle Harrington <scenery@kyleharrington.com>
  */
@@ -21,8 +21,8 @@ class VectorPointTests {
     @Test
     fun testVectorPoint3f() {
         println("Testing VectorPoint3f methods")
-        val v = VectorPoint3f(1.0f, 0.0f, 0.0f)
-        val v2 = VectorPoint3f(2.0f, 1.0f, 1.0f)
+        val v = Vec3f(1.0f, 0.0f, 0.0f)
+        val v2 = Vec3f(2.0f, 1.0f, 1.0f)
 
         val vadd = v + v2
         assertEquals(3f,vadd.x(),"add test")
@@ -41,8 +41,8 @@ class VectorPointTests {
     @Test
     fun testVectorPoint4f() {
         println("Testing VectorPoint3f methods")
-        val v = VectorPoint4f(1.0f, 0.0f, 0.0f, 0.0f)
-        val v2 = VectorPoint4f(2.0f, 1.0f, 1.0f, 1.0f)
+        val v = Vec4f(1.0f, 0.0f, 0.0f, 0.0f)
+        val v2 = Vec4f(2.0f, 1.0f, 1.0f, 1.0f)
 
         val vadd = v + v2
         assertEquals(3f,vadd.x(),"add test")
@@ -60,7 +60,7 @@ class VectorPointTests {
     @Test
     fun testImgLib() {
         println("Testing VectorPoint3f methods")
-        val v = VectorPoint3f(1.0f, 0.0f, 0.0f)
+        val v = Vec3f(1.0f, 0.0f, 0.0f)
 
         val rng = Random(17)
 
