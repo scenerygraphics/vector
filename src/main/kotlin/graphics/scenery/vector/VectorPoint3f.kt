@@ -246,10 +246,23 @@ class VectorPoint3f() : Vector3f(), RealLocalizable, RealPositionable {
         return VectorPoint3f(x(), y(), z())
     }
 
+    operator fun plus(v2: VectorPoint3f): VectorPoint3f {
+        return this.add(v2)
+    }
+
+    operator fun times(v2: VectorPoint3f): VectorPoint3f {
+        return this.mul(v2, VectorPoint3f()) as VectorPoint3f
+    }
+
+    operator fun div(v2: VectorPoint3f): VectorPoint3f {
+        return this.div(v2, VectorPoint3f()) as VectorPoint3f
+    }
+
     companion object {
         fun test() {
-            val v = VectorPoint3f(0.0f, 0.0f, 0.0f)
-            //val v2 = v + v
+            val v = VectorPoint3f(1.0f, 0.0f, 0.0f)
+            val v2 = v + v
+            println(v2)
         }
     }
 }

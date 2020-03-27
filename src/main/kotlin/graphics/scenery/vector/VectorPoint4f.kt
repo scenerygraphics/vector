@@ -266,6 +266,18 @@ class VectorPoint4f() : Vector4f(), RealLocalizable, RealPositionable {
         return VectorPoint4f(x(), y(), z(), w())
     }
 
+    operator fun plus(v2: VectorPoint4f): VectorPoint4f {
+        return this.add(v2)
+    }
+
+    operator fun times(v2: VectorPoint4f): VectorPoint4f {
+        return this.mul(v2, VectorPoint4f()) as VectorPoint4f
+    }
+
+    operator fun div(v2: VectorPoint4f): VectorPoint4f {
+        return this.div(v2, VectorPoint4f()) as VectorPoint4f
+    }
+
     companion object {
         fun test() {
             val v = VectorPoint4f(0.0f, 0.0f, 0.0f, 0.0f)
