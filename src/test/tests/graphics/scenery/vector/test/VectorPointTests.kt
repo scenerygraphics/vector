@@ -20,7 +20,7 @@ class VectorPointTests {
 
     @Test
     fun testVectorPoint3f() {
-        println("Testing VectorPoint3f methods")
+        println("Testing Vec3f methods")
         val v = Vec3f(1.0f, 0.0f, 0.0f)
         val v2 = Vec3f(2.0f, 1.0f, 1.0f)
 
@@ -40,7 +40,7 @@ class VectorPointTests {
 
     @Test
     fun testVectorPoint4f() {
-        println("Testing VectorPoint3f methods")
+        println("Testing Vec4f methods")
         val v = Vec4f(1.0f, 0.0f, 0.0f, 0.0f)
         val v2 = Vec4f(2.0f, 1.0f, 1.0f, 1.0f)
 
@@ -59,7 +59,7 @@ class VectorPointTests {
 
     @Test
     fun testImgLib() {
-        println("Testing VectorPoint3f methods")
+        println("Testing Vec3f with imglib2 methods")
         val v = Vec3f(1.0f, 0.0f, 0.0f)
 
         val rng = Random(17)
